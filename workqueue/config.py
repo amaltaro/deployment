@@ -6,7 +6,6 @@ Global cmsweb WorkQueue config.
 
 import socket
 import os
-import time
 
 from WMCore.Configuration import Configuration
 
@@ -87,7 +86,7 @@ if HOST.startswith("vocms0140") or HOST.startswith("vocms0131") or HOST.startswi
     reqmgrInteraction.object = "WMCore.GlobalWorkQueue.CherryPyThreads.ReqMgrInteractionTask.ReqMgrInteractionTask"
     setWorkQueueCommonConfig(reqmgrInteraction)
     reqmgrInteraction.interactDuration = 60 * 5 # every 5 minutes
-    reqmgrInteraction.log_file = '%s/logs/workqueue/reqmgrInteractionTask-%s.log' % (__file__.rsplit('/', 4)[0], time.strftime("%Y%m%d"))
+    reqmgrInteraction.log_file = '%s/logs/workqueue/reqmgrInteractionTask.log' % (__file__.rsplit('/', 4)[0])
     reqmgrInteraction.central_logdb_url = LOG_DB_URL
     reqmgrInteraction.log_reporter = LOG_REPORTER
     
@@ -96,7 +95,7 @@ if HOST.startswith("vocms0140") or HOST.startswith("vocms0131") or HOST.startswi
     locationUpdateTask.object = "WMCore.GlobalWorkQueue.CherryPyThreads.LocationUpdateTask.LocationUpdateTask"
     setWorkQueueCommonConfig(locationUpdateTask)
     locationUpdateTask.locationUpdateDuration = 60 * 20 # every 20 minutes
-    locationUpdateTask.log_file = '%s/logs/workqueue/locationUpdateTask-%s.log' % (__file__.rsplit('/', 4)[0], time.strftime("%Y%m%d"))
+    locationUpdateTask.log_file = '%s/logs/workqueue/locationUpdateTask.log' % (__file__.rsplit('/', 4)[0])
     locationUpdateTask.central_logdb_url = LOG_DB_URL
     locationUpdateTask.log_reporter = LOG_REPORTER
     
@@ -105,7 +104,7 @@ if HOST.startswith("vocms0140") or HOST.startswith("vocms0131") or HOST.startswi
     cleanUpTask.object = "WMCore.GlobalWorkQueue.CherryPyThreads.CleanUpTask.CleanUpTask"
     setWorkQueueCommonConfig(cleanUpTask)
     cleanUpTask.cleanUpDuration = 60 * 10 # every 10 minutes
-    cleanUpTask.log_file = '%s/logs/workqueue/cleanUpTask-%s.log' % (__file__.rsplit('/', 4)[0], time.strftime("%Y%m%d"))
+    cleanUpTask.log_file = '%s/logs/workqueue/cleanUpTask.log' % (__file__.rsplit('/', 4)[0])
     cleanUpTask.central_logdb_url = LOG_DB_URL
     cleanUpTask.log_reporter = LOG_REPORTER
     
@@ -114,7 +113,7 @@ if HOST.startswith("vocms0140") or HOST.startswith("vocms0131") or HOST.startswi
     heartbeatMonitor.object = "WMCore.GlobalWorkQueue.CherryPyThreads.HeartbeatMonitor.HeartbeatMonitor"
     setWorkQueueCommonConfig(heartbeatMonitor)
     heartbeatMonitor.heartbeatCheckDuration = 60 * 10 # every 10 minutes
-    heartbeatMonitor.log_file = '%s/logs/workqueue/heartbeatMonitor-%s.log' % (__file__.rsplit('/', 4)[0], time.strftime("%Y%m%d"))
+    heartbeatMonitor.log_file = '%s/logs/workqueue/heartbeatMonitor.log' % (__file__.rsplit('/', 4)[0])
     heartbeatMonitor.wmstats_url = "%s/%s" % (COUCH_URL, wmstatDBName)
     heartbeatMonitor.central_logdb_url = LOG_DB_URL
     heartbeatMonitor.log_reporter = LOG_REPORTER

@@ -5,7 +5,6 @@ Everything configurable in ReqMgr is defined here.
 """
 
 import socket
-import time
 from WMCore.Configuration import Configuration
 from os import path
 
@@ -81,7 +80,7 @@ dataCacheTasks.object = "WMCore.WMStats.CherryPyThreads.DataCacheUpdate.DataCach
 dataCacheTasks.wmstats_url = "%s/%s" % (data.couch_host, data.couch_wmstats_db)
 dataCacheTasks.reqmgrdb_url = "%s/%s" % (data.couch_host, data.couch_reqmgr_db)
 dataCacheTasks.dataCacheUpdateDuration = 60 * 5 # every 5 min
-dataCacheTasks.log_file = '%s/logs/reqmon/dataCacheTasks-%s.log' % (__file__.rsplit('/', 4)[0], time.strftime("%Y%m%d"))
+dataCacheTasks.log_file = '%s/logs/reqmon/dataCacheTasks.log' % (__file__.rsplit('/', 4)[0])
 dataCacheTasks.central_logdb_url = LOG_DB_URL
 dataCacheTasks.log_reporter = "%s-%s" % (LOG_REPORTER, HOST)
 
@@ -94,7 +93,7 @@ if HOST.startswith("vocms0140") or HOST.startswith("vocms0131") or HOST.startswi
     logDBTasks.central_logdb_url = LOG_DB_URL
     logDBTasks.log_reporter = LOG_REPORTER
     logDBTasks.logDBCleanDuration = 60 * 60 * 24 * 1 # 1 day
-    logDBTasks.log_file = '%s/logs/reqmon/logDBTasks-%s.log' % (__file__.rsplit('/', 4)[0], time.strftime("%Y%m%d"))
+    logDBTasks.log_file = '%s/logs/reqmon/logDBTasks.log' % (__file__.rsplit('/', 4)[0])
     
     # Cleaning up wmstats db
     cleanUpTask = extentions.section_("cleanUpTask")
@@ -106,14 +105,14 @@ if HOST.startswith("vocms0140") or HOST.startswith("vocms0131") or HOST.startswi
     cleanUpTask.log_reporter = LOG_REPORTER
     cleanUpTask.DataKeepDays = 0.125 # 3 hours - unit is day
     cleanUpTask.archivedCleanUpDuration = 60 * 60 * 12  # every 12 hours
-    cleanUpTask.log_file = '%s/logs/reqmon/cleanUpTask-%s.log' % (__file__.rsplit('/', 4)[0], time.strftime("%Y%m%d"))
+    cleanUpTask.log_file = '%s/logs/reqmon/cleanUpTask.log' % (__file__.rsplit('/', 4)[0])
     
     # heartbeat monitor task
     heartbeatMonitor = extentions.section_("heartbeatMonitor")
     heartbeatMonitor.object = "WMCore.WMStats.CherryPyThreads.HeartbeatMonitor.HeartbeatMonitor"
     heartbeatMonitor.wmstats_url = "%s/%s" % (data.couch_host, data.couch_wmstats_db)
     heartbeatMonitor.heartbeatCheckDuration = 60 * 10  # every 10 min
-    heartbeatMonitor.log_file = '%s/logs/reqmon/heartbeatMonitor-%s.log' % (__file__.rsplit('/', 4)[0], time.strftime("%Y%m%d"))
+    heartbeatMonitor.log_file = '%s/logs/reqmon/heartbeatMonitor.log' % (__file__.rsplit('/', 4)[0])
     heartbeatMonitor.central_logdb_url = LOG_DB_URL
     heartbeatMonitor.log_reporter = LOG_REPORTER
     #list all the thread need to be monitored

@@ -5,7 +5,6 @@ Everything configurable in ReqMgr is defined here.
 """
 
 import socket
-import time
 from WMCore.Configuration import Configuration
 from os import path
 
@@ -125,7 +124,7 @@ if HOST.startswith("vocms0136") or HOST.startswith("vocms0131") or HOST.startswi
 #     wmdatamining.mcm_tmp_dir = "%s/state/reqmgr2/tmp" % __file__.rsplit('/', 4)[0]
 #     wmdatamining.activeDuration = 60 * 15  # every 15 min
 #     wmdatamining.archiveDuration = 60 * 60 * 4 # every 4 hours
-#     wmdatamining.log_file = '%s/logs/reqmgr2/wmdataminig-%s.log' % (__file__.rsplit('/', 4)[0], time.strftime("%Y%m%d"))
+#     wmdatamining.log_file = '%s/logs/reqmgr2/wmdataminig.log' % (__file__.rsplit('/', 4)[0])
 #     wmdatamining.central_logdb_url = LOG_DB_URL
 #     wmdatamining.log_reporter = LOG_REPORTER
     
@@ -137,7 +136,7 @@ if HOST.startswith("vocms0136") or HOST.startswith("vocms0131") or HOST.startswi
     couchCleanup.acdcCleanDuration = 60 * 60 * 4 # every 4 hours
     couchCleanup.workqueue_url = "%s/%s" % (data.couch_host, data.couch_workqueue_db)
     couchCleanup.workqueueCleanDuration = 60 * 60 * 12 # every 12 hours
-    couchCleanup.log_file = '%s/logs/reqmgr2/couchCleanup-%s.log' % (__file__.rsplit('/', 4)[0], time.strftime("%Y%m%d"))
+    couchCleanup.log_file = '%s/logs/reqmgr2/couchCleanup.log' % (__file__.rsplit('/', 4)[0])
     couchCleanup.central_logdb_url = LOG_DB_URL
     couchCleanup.log_reporter = LOG_REPORTER
     
@@ -149,7 +148,7 @@ if HOST.startswith("vocms0136") or HOST.startswith("vocms0131") or HOST.startswi
     statusChangeTasks.workqueue_url = "%s/%s" % (data.couch_host, data.couch_workqueue_db)
     statusChangeTasks.archiveDelayHours = 24 # delay the archive at least 24 hours after announced
     statusChangeTasks.checkStatusDuration = 60 * 10  # every 10 min
-    statusChangeTasks.log_file = '%s/logs/reqmgr2/statusChangeTasks-%s.log' % (__file__.rsplit('/', 4)[0], time.strftime("%Y%m%d"))
+    statusChangeTasks.log_file = '%s/logs/reqmgr2/statusChangeTasks.log' % (__file__.rsplit('/', 4)[0])
     statusChangeTasks.central_logdb_url = LOG_DB_URL
     statusChangeTasks.log_reporter = LOG_REPORTER
 
@@ -160,7 +159,7 @@ if HOST.startswith("vocms0136") or HOST.startswith("vocms0131") or HOST.startswi
     auxCacheUpdateTasks.tagCollectDuration = 60 * 60  # every 1 hour
     auxCacheUpdateTasks.tagcollect_url = "https://cmssdt.cern.ch/SDT/cgi-bin/ReleasesXML"
     auxCacheUpdateTasks.tagcollect_args = {"anytype": 1, "anyarch": 1}
-    auxCacheUpdateTasks.log_file = '%s/logs/reqmgr2/auxCacheUpdateTasks-%s.log' % (__file__.rsplit('/', 4)[0], time.strftime("%Y%m%d"))
+    auxCacheUpdateTasks.log_file = '%s/logs/reqmgr2/auxCacheUpdateTasks.log' % (__file__.rsplit('/', 4)[0])
     auxCacheUpdateTasks.central_logdb_url = LOG_DB_URL
     auxCacheUpdateTasks.log_reporter = LOG_REPORTER
 
@@ -169,7 +168,7 @@ if HOST.startswith("vocms0136") or HOST.startswith("vocms0131") or HOST.startswi
     heartbeatMonitor.object = "WMCore.ReqMgr.CherryPyThreads.HeartbeatMonitor.HeartbeatMonitor"
     heartbeatMonitor.wmstats_url = "%s/%s" % (data.couch_host, data.couch_wmstats_db)
     heartbeatMonitor.heartbeatCheckDuration = 60 * 10  # every 10 min
-    heartbeatMonitor.log_file = '%s/logs/reqmgr2/heartbeatMonitor-%s.log' % (__file__.rsplit('/', 4)[0], time.strftime("%Y%m%d"))
+    heartbeatMonitor.log_file = '%s/logs/reqmgr2/heartbeatMonitor.log' % (__file__.rsplit('/', 4)[0])
     heartbeatMonitor.central_logdb_url = LOG_DB_URL
     heartbeatMonitor.log_reporter = LOG_REPORTER
     #list all the thread need to be monitored
