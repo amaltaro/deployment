@@ -98,7 +98,7 @@ data.tapePledges = {"T0_CH_CERN_MSS": 99000,
 data.enableDataPlacement = ENABLE_DATA_PLACEMENT
 data.enableRelValCustodial = False
 data.excludeDataTier = []
-data.rucioRSEAttribute = "ddm_quota"
+data.rucioRSEAttribute = None  # "ddm_quota"
 data.rucioDiskRuleWeight = "ddm_quota"
 data.rucioTapeExpression = "rse_type=TAPE\cms_type=test"  # "rse_type=TAPE\cms_type=test\\rse=T0_CH_CERN_Tape"
 data.rulesLifetime = RULE_LIFETIME
